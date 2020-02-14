@@ -159,7 +159,6 @@
 				DD3ABB0A1D89E48700E7332F /* Frameworks */,
 				DD3ABB0B1D89E48700E7332F /* Resources */,
 				F0E194C366FC453EFBB3F567 /* [CP] Embed Pods Frameworks */,
-				4CAE0EF254ED839AF533FCCF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,14 +181,14 @@
 				TargetAttributes = {
 					DD3ABB0C1D89E48700E7332F = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = DD3ABB081D89E48700E7332F /* Build configuration list for PBXProject "AKMediaViewerExample" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -227,28 +226,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4CAE0EF254ED839AF533FCCF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AKMediaViewerExample/Pods-AKMediaViewerExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F0E194C366FC453EFBB3F567 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AKMediaViewerExample/Pods-AKMediaViewerExample-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AKMediaViewerExample/Pods-AKMediaViewerExample-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AKMediaViewer/AKMediaViewer.framework",
 				"${BUILT_PRODUCTS_DIR}/ASBPlayerScrubbing/ASBPlayerScrubbing.framework",
 			);
@@ -259,7 +243,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AKMediaViewerExample/Pods-AKMediaViewerExample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AKMediaViewerExample/Pods-AKMediaViewerExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD98690657E33A76B95CE293 /* [CP] Check Pods Manifest.lock */ = {
@@ -436,7 +420,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.anykey.AKMediaViewerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -450,7 +434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.anykey.AKMediaViewerExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

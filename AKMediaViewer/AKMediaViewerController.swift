@@ -291,6 +291,10 @@ public class AKMediaViewerController: UIViewController, UIScrollViewDelegate {
     func playPLayer() {
         activityIndicator?.stopAnimating()
         player?.play()
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { (_) in
+            self.player?.seek(to: CMTime.zero)
+            self.player?.play()
+        }
     }
 
     // MARK: - Actions
