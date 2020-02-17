@@ -81,6 +81,7 @@ public class AKMediaViewerController: UIViewController, UIScrollViewDelegate {
     deinit {
         removeObservers(player: self.player)
         player?.removeObserver(self, forKeyPath: ObservedValue.Status)
+        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
 
         mainImageView = nil
         contentView = nil
