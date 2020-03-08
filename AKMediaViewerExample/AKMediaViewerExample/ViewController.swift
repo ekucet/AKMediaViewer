@@ -10,7 +10,11 @@ import UIKit
 import AKMediaViewer
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AKMediaViewerDelegate {
-
+    
+    func didTapMediaObject() {
+        print("Did tap media object")
+    }
+    
     var statusBarHidden = false
     var mediaNames = ["1f.jpg", "2f.jpg", "3f.mp4", "4f.jpg"]
     var mediaFocusManager = AKMediaViewerManager()
