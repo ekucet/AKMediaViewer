@@ -349,6 +349,8 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
         var finalImageFrame: CGRect?
         var untransformedFinalImageFrame: CGRect = .zero
 
+        self.delegate?.didTapMediaObject(self)
+        
         guard let focusViewController = focusViewControllerForView(mediaView) else {
             return
         }
@@ -560,7 +562,6 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
 
     @objc
     func handleFocusGesture(_ gesture: UIGestureRecognizer) {
-        self.delegate?.didTapMediaObject(self)
         startFocusingView(gesture.view!)
     }
 
