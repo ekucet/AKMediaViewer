@@ -11,8 +11,8 @@ import AKMediaViewer
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AKMediaViewerDelegate {
     
-    func didTapMediaObject() {
-        print("Did tap media object")
+    func didTapMediaObject(_ manager: AKMediaViewerManager) {
+        print("Did tap object")
     }
     
     var statusBarHidden = false

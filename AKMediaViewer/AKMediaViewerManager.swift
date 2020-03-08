@@ -20,7 +20,7 @@ let kSwipeOffset: CGFloat = 100
 
 @objc public protocol AKMediaViewerDelegate: NSObjectProtocol {
     
-    func didTapMediaObject()
+    func didTapMediaObject(_ manager: AKMediaViewerManager)
     
     // Returns the view controller in which the focus controller is going to be added. This can be any view controller, full screen or not.
     func parentViewControllerForMediaViewerManager(_ manager: AKMediaViewerManager) -> UIViewController
@@ -560,7 +560,7 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
 
     @objc
     func handleFocusGesture(_ gesture: UIGestureRecognizer) {
-        self.delegate?.didTapMediaObject()
+        self.delegate?.didTapMediaObject(self)
         startFocusingView(gesture.view!)
     }
 
