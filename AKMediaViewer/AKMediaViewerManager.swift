@@ -302,7 +302,9 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
         }
 
         if isVideoURL(url) {
-            viewController.showPlayerWithURL(url!)
+            DispatchQueue.main.async {
+                viewController.showPlayerWithURL(url!)
+            }
         } else {
             DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
                 self.loadImageFromURL(url!, onImageView: viewController.mainImageView)
@@ -348,8 +350,6 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
         let imageView: UIImageView
         var finalImageFrame: CGRect?
         var untransformedFinalImageFrame: CGRect = .zero
-
-        self.delegate?.didTapMediaObject(self)
         
         guard let focusViewController = focusViewControllerForView(mediaView) else {
             return
@@ -562,6 +562,7 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
 
     @objc
     func handleFocusGesture(_ gesture: UIGestureRecognizer) {
+        self.delegate?.didTapMediaObject(self)
         startFocusingView(gesture.view!)
     }
 
