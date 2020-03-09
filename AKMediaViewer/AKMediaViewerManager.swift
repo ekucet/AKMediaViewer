@@ -566,9 +566,7 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
     @objc
     func handleFocusGesture(_ gesture: UIGestureRecognizer) {
         self.delegate?.didTapMediaObject(self)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.startFocusingView(gesture.view!)
-        }
+        startFocusingView(gesture.view!)
     }
 
     @objc
