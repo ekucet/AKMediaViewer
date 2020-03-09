@@ -101,6 +101,9 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
 
     // Image used to show a play icon on video thumbnails. Defaults to nil (uses internal image).
     public let playImage: UIImage?
+    
+    //Infinite loop for video files.
+    public var infiniteLoopForVideo: Bool
 
     public weak var delegate: AKMediaViewerDelegate?
 
@@ -124,6 +127,7 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
         addPlayIconOnVideo = true
         videoBehavior = AKVideoBehavior()
         playImage = UIImage()
+        infiniteLoopForVideo = false
         super.init()
     }
 
@@ -294,6 +298,7 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
         viewController.titleLabel.text = delegate?.mediaViewerManager(self, titleForView: mediaView)
         viewController.mainImageView.image = image
         viewController.mainImageView.contentMode = imageView!.contentMode
+        viewController.infiniteLoopForVideo = infiniteLoopForVideo
 
         let cachedImage = delegate?.mediaViewerManager?(self, cachedImageForView: mediaView)
         if cachedImage != nil {

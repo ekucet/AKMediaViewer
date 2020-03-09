@@ -42,7 +42,8 @@ public class AKMediaViewerController: UIViewController, UIScrollViewDelegate {
     public var playerView: PlayerView?
     public var imageScrollView = AKImageScrollView()
     public var controlView: UIView?
-
+    public var infiniteLoopForVideo: Bool = false
+    
     @IBOutlet var mainImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var accessoryView: UIView!
@@ -81,7 +82,9 @@ public class AKMediaViewerController: UIViewController, UIScrollViewDelegate {
     deinit {
         removeObservers(player: self.player)
         player?.removeObserver(self, forKeyPath: ObservedValue.Status)
-        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        if infiniteLoopForVideo {
+            NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+        }
 
         mainImageView = nil
         contentView = nil
@@ -292,9 +295,11 @@ public class AKMediaViewerController: UIViewController, UIScrollViewDelegate {
     func playPLayer() {
         activityIndicator?.stopAnimating()
         player?.play()
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { (_) in
-            self.player?.seek(to: CMTime.zero)
-            self.player?.play()
+        if infiniteLoopForVideo {
+            NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { (_) in
+                self.player?.seek(to: CMTime.zero)
+                self.player?.play()
+            }
         }
     }
 

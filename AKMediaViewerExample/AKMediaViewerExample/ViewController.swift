@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         mediaFocusManager.delegate = self
         mediaFocusManager.elasticAnimation = true
         mediaFocusManager.focusOnPinch = true
+        mediaFocusManager.infiniteLoopForVideo = true
     }
 
     override func didReceiveMemoryWarning() {
