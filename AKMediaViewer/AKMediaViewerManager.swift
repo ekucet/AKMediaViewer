@@ -307,9 +307,7 @@ public class AKMediaViewerManager: NSObject, UIGestureRecognizerDelegate {
         }
 
         if isVideoURL(url) {
-            DispatchQueue.main.async {
-                viewController.showPlayerWithURL(url!)
-            }
+            viewController.showPlayerWithURL(url!)
         } else {
             DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
                 self.loadImageFromURL(url!, onImageView: viewController.mainImageView)
